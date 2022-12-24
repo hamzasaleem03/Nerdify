@@ -1,0 +1,230 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Styling for carousel */
+.item1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#sync1 .item {
+  background: transparent;
+  padding: 80px 0px;
+  margin: 5px;
+  color: black;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+#sync1 >div h1{
+  font-size: 16px;
+  text-align: left;
+  font-weight: 400;
+  font-weight: 400px!important;
+}
+
+#sync2 .item {
+  background: transparent;
+  padding: 1px 0px;
+  text-align: center;
+  cursor: pointer;
+}
+.item-b {
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-right: 1px solid #24a752;
+}
+.item-b2 {
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-left: 1px solid #24a752;
+}
+#sync2 {
+  border: 1px solid #24a752;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+
+}
+#sync2 .item h1 {
+  font-size: 18px;
+}
+#sync2 .current .item {
+  background: #24a752;
+  color: white;
+
+}
+
+#sync2 .item{
+  height: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.owl-theme .owl-nav {
+  /*default owl-theme theme reset .disabled:hover links */
+}
+.owl-theme .owl-nav [class*="owl-"] {
+  transition: all 0.3s ease;
+}
+.owl-theme .owl-nav [class*="owl-"].disabled:hover {
+  background-color: #d6d6d6;
+}
+
+#sync1.owl-theme {
+  position: relative;
+}
+#sync1.owl-theme .owl-next,
+#sync1.owl-theme .owl-prev {
+  width: 22px;
+  height: 40px;
+  margin-top: -20px;
+  position: absolute;
+  top: 50%;
+}
+#sync1.owl-theme .owl-prev {
+  left: 10px;
+  display: none;
+}
+#sync1.owl-theme .owl-next {
+  right: 10px;
+  display: none;
+}
+/* End */
+ .carousel {
+  width: 80vw;
+  height: 700px;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.slide{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel:hover .controls {
+  opacity: 1;
+}
+.carousel .controls {
+  opacity: 1;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 99999;
+  transition: all ease 0.5s;
+}
+.carousel .controls .control {
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  opacity: 0.5;
+  transition: ease 0.3s;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.carousel .controls .control:hover {
+  opacity: 1;
+  border: 1px solid #24a652;
+  color: #24a652;
+}
+.carousel .slides {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  width: 100%;
+  transition: 1s ease-in-out all;
+}
+.carousel .slides .slide {
+  min-width: 100%;
+  min-height: 600px;
+  height: auto;
+}
+
+
+
+.label-u{
+  cursor: pointer;
+  background: #e6ffee;
+  max-width:250px;
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+gap: 10px;
+  border: 1px solid #24a652;
+  font-weight: 600;
+  border-radius: 5px;
+  color: #24a652;
+  /* Style as you please, it will become the visible UI component. */
+}
+.l-2{
+  max-width:300px;
+  width: 100%;
+}
+.center{
+  display: flex;
+  justify-content: center;
+}
+.label-u:hover{
+  background: #24a652;
+  color: white;
+}
+
+.text{
+  color: #00b341;
+}
+.text:hover{
+  color: white;
+}
+#upload-photo {
+  
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+/* country */
+
+.fb{
+  list-style: none; 
+}
+ .fb::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #00b341; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+.bg-r{
+  background: url('https://gonerdify.com/static/img/blurry-bg-new.png?1562246603&15af8c672f5f');
+  background-repeat: repeat;
+  /* background-position: center; */
+  width: 100%;
+}
+.custom-b{
+  display: block!important;
+}
+.custom-m{
+  display: block!important;
+}
+.custom-c{
+  display: none!important;
+}
+

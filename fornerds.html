@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="relative">
+      <!-- Navbar -->
+      <div class="relative md:hidden 2xl:mx-auto 2xl:container w-full p-2">
+        <div class="flex justify-between items-center">
+          <div class="w-28">
+            <img
+              class="w-[300px]"
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/nerds121212121212-removebg-preview.png"
+              alt="logo"
+            />
+          </div>
+          <div>
+            <button
+              id="menu"
+              aria-label="open menu"
+              onclick="sidebarHandler(true)"
+              class="text-gray-800"
+            >
+              <svg
+                class="text-black"
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-menu-2"
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="18" x2="20" y2="18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--Mobile responsive sidebar-->
+      <div
+        class="bg-gray-50 fixed top-0 w-full h-full transform -translate-x-full z-40 transition duration-700 md:hidden"
+        id="mobile-nav"
+      >
+        <div
+          class="opacity-50 w-full h-full"
+          onclick="sidebarHandler(false)"
+        ></div>
+        <div
+          class="w-full h-full shadow-lg fixed overflow-y-auto z-40 top-0 flex-col justify-between xl:hidden pb-4 transition duration-500 ease-in-out"
+        >
+          <div class="px-6 h-full">
+            <div class="pt-4 flex flex-col justify-between h-full w-full">
+              <div>
+                <div
+                  class="pb-4 border-b border-gray-200 flex justify-between items-center"
+                >
+                  <div class="">
+                    <img
+                      class="w-[300px]"
+                      src="https://tuk-cdn.s3.amazonaws.com/can-uploader/nerds121212121212.png"
+                      alt="logo"
+                    />
+                  </div>
+                  <div class="flex w-full items-end justify-end">
+                    <div class="flex items-center justify-end w-full">
+                      <button
+                        id="cross"
+                        aria-label="close menu"
+                        class="focus:outline-none focus:ring-2 rounded-md text-gray-800"
+                        onclick="sidebarHandler(false)"
+                      >
+                        <img
+                          src="https://tuk-cdn.s3.amazonaws.com/can-uploader/hero_5_Svg3.svg"
+                          alt="cross"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                    <a class="cursor-pointer">
+                      <div class="text-gray-800 pt-10">
+                        <div
+                          class="flex items-center hover:text-gray-600 text-base text-gray-900"
+                        >
+                          <a href="index.html" class="focus:outline-none"
+                            >For Students</a
+                          >
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="cursor-pointer">
+                      <div class="text-gray-800 pt-8">
+                        <div class="flex items-center">
+                          <div
+                            class="flex items-center hover:text-gray-600 text-base text-gray-900"
+                          >
+                            <a
+                              href="fornerds.html"
+                              class="focus:outline-none text-gray-800"
+                              >For Nerds</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="cursor-pointer">
+                      <div class="text-gray-800 pt-8">
+                        <div
+                          class="flex items-center hover:text-gray-600 text-base text-gray-900"
+                        >
+                          <a href="howitwork.html" class="focus:outline-none"
+                            >How It Works</a
+                          >
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end -->
+      <div
+        class="relative z-10 mx-auto container lg:max-w-[1000px] w-full py-2 px-2"
+      >
+        <!-- Lg Nav -->
+        <div class="hidden md:flex items-center justify-between w-full">
+          <div aria-label="logo">
+            <img
+              class="w-[200px]"
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/nerds121212121212-removebg-preview.png"
+              alt="logo"
+            />
+          </div>
+          <div class="flex lg:gap-20 gap-4 items-center w-full justify-end">
+            <div class="flex gap-12 items-center w-full justify-end">
+              <a href="index.html">
+                <p class="text-base text-[#4e526b] cursor-pointer">
+                  For Students
+                </p>
+              </a>
+              <a href="fornerds.html">
+                <p class="text-base text-[#4e526b] cursor-pointer">For Nerds</p>
+              </a>
+              <a href="howitwork.html">
+                <p class="text-base text-[#4e526b] cursor-pointer">
+                  How It Works
+                </p>
+              </a>
+            </div>
+            <div class="button-1" id="button">
+              <button
+                onclick="modalHandler(true)"
+                class="bg-[#24a752] text-white p-2 w-[155px] text-base font-bold rounded-lg hover:bg-[#35ce6b] transform duration-300 ease-in-out"
+              >
+                Login for Nerds
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end -->
+      </div>
+    </header>
+    <!-- New -->
+    <div class="relative">
+      <div class="w-full absolute z-0 lg:h-[300px]">
+        <img
+          class="w-full lg:h-full h-[300px]"
+          src="https://gonerdify.com/static/img/become-a-nerd/become-a-nerd-banner-wide-screen.jpg?1562246603&c709a102e48b"
+          alt="background"
+        />
+      </div>
+      <div
+        class="mx-auto container lg:max-w-[1000px] w-full px-4 relative text-center z-10"
+      >
+        <div class="relative pt-20">
+          <h1
+            class="text-center md:text-[48px] text-3xl lg:max-w-[700px] mx-auto leading-normal text-white w-full font-bold"
+          >
+            You are just a few steps away from becoming a Nerd!
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- New -->
+    <div
+      class="mt-[150px] pb-20 z-10 mx-auto container lg:max-w-[1000px] w-full px-4"
+    >
+      <p
+        class="lg:max-w-[600px] w-full mx-auto text-[#4e526b] text-xl text-center"
+      >
+        Nerdify is a platform that connects Businesses, Students and
+        Universities with talented freelancers — Nerds. We are looking for
+        bright people from top universities to join our Nerd network.
+      </p>
+      <hr class="w-[200px] h-[1px] mx-auto my-4" />
+      <p
+        class="text-[#4e526b] text-lg text-center lg:max-w-[400px] w-full mx-auto"
+      >
+        Are you in your 3rd year at university or higher? Apply to become a
+        freelance Nerd on our platform
+      </p>
+    </div>
+    <!-- New -->
+    <div class="bg-[#fafcff]">
+      <div class="mx-auto container lg:max-w-[1000px] w-full px-4 py-10">
+        <h1 class="text-center text-[#4e526b] text-[26px]">How to Apply</h1>
+        <div
+          class="flex justify-center items-center lg:gap-20 gap-8 flex-wrap py-8"
+        >
+          <div class="flex flex-col justify-center items-center gap-3">
+            <img
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/form121212.svg"
+              alt="mobile"
+            />
+            <p class="text-[#4e526b] text-base font-bold text-center">
+              Submit an <br />
+              Application Form
+            </p>
+          </div>
+          <div class="flex flex-col justify-center items-center gap-3">
+            <img
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/mic34343434.svg"
+              alt="mobile"
+            />
+            <p class="text-[#4e526b] text-base font-bold text-center">
+              Pass an Interview
+            </p>
+          </div>
+          <div class="flex flex-col justify-center items-center gap-3">
+            <img
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/donw43434.svg"
+              alt="mobile"
+            />
+            <p class="text-[#4e526b] text-base font-bold text-center">
+              Get Approved & <br />
+              Get Started
+            </p>
+          </div>
+          <div class="flex flex-col justify-center items-center gap-3">
+            <img
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/0919219010291.svg"
+              alt="mobile"
+            />
+            <p class="text-[#4e526b] text-base font-bold text-center">
+              Earn up to $20 per <br />
+              Hour with Nerdify
+            </p>
+          </div>
+        </div>
+        <p class="text-center text-[#4e526b] text-[13px] mt-4">
+          Note that it might take several weeks to contact you back. <br />
+          We are accepting applications but right now the demand for Nerds is
+          fully met.
+        </p>
+      </div>
+    </div>
+    <!-- Form -->
+    <div class="relative">
+      <img
+        class="absolute left-0 z-0"
+        src="https://gonerdify.com/static/img/landing/lp-ga/slider-bg1.png?1562246603&37ac6888adb9"
+        alt="left"
+      />
+      <img
+        class="absolute right-0 z-0"
+        src="https://gonerdify.com/static/img/landing/lp-ga/slider-bg2.png?1562246603&37ac6888adb9"
+        alt="left"
+      />
+      <div
+        class="mx-auto container lg:max-w-[1000px] w-full px-4 mt-10 z-20 relative bg-white"
+      >
+        <h1
+          class="text-center md:text-[26px] text-xl mx-auto leading-normal text-[#4e526b] w-full mb-10"
+        >
+          Fill Out an Application Form
+        </h1>
+        <form action="">
+          <div
+            class="mx-auto container lg:max-w-[700px] w-full border rounded-lg"
+          >
+            <div class="lg:p-10 p-4">
+              <label class="text-[#4e526b] text-sm font-semibold"
+                >Your name and surname</label
+              >
+              <input
+                type="text"
+                class="w-full border mt-2 p-3 rounded outline-[#24a652] focus:text-[#24a652]"
+              />
+              <div class="flex lg:flex-nowrap flex-wrap gap-4 mt-8">
+                <div class="w-full">
+                  <label class="text-[#4e526b] text-sm font-semibold"
+                    >Your phone number</label
+                  >
+                  <input
+                    type="text"
+                    class="lg:max-w-[300px] w-full border mt-2 p-3 rounded outline-[#24a652] focus:text-[#24a652]"
+                  />
+                </div>
+                <div class="w-full">
+                  <label class="text-[#4e526b] text-sm font-semibold"
+                    >Email</label
+                  >
+                  <input
+                    type="text"
+                    class="lg:max-w-[300px] w-full border mt-2 p-3 rounded outline-[#24a652] focus:text-[#24a652]"
+                  />
+                </div>
+              </div>
+              <div class="mt-8">
+                <label for="upload-photo" class="label-u">
+                  <svg
+                    class="text"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-paperclip"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"
+                    />
+                  </svg>
+                  Upload your photo</label
+                >
+                <input type="file" name="photo" id="upload-photo" />
+              </div>
+              <div class="dropdown relative w-full mt-10">
+                <label class="text-[#4e526b] text-sm font-semibold"
+                  >Your level of education</label
+                >
+                <div
+                  onclick="myWeight1()"
+                  class="weightdropbtn mt-2 broder-slate-300 relative border rounded xl:max-w-[712px] w-full text-slate-600 h-[48px] py-3 px-4 cursor-pointer bg-white hover:bg-gray-100 outline-none focus:bg-gray-50"
+                >
+                  <span class="weightdropbtnspan1 py-1 place">Select one</span>
+                  <svg
+                    class="absolute weight-arrow1 top-4 right-4"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3.5 5.75L8 10.25L12.5 5.75"
+                      stroke="#475569"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div
+                  id="weightDropdown1"
+                  class="p-3 cursor-pointer dropdown-content absolute bg-white text-[#00a850] hidden xl:max-w-[712px] w-full overflow-auto h-[106px] z-10"
+                >
+                  <div class="flex flex-col">
+                    <a class="font-bold" label="Electronics1">Select one</a>
+                    <a class="font-bold my-1" label="Fashion1">High School</a>
+                    <a class="font-bold" label="Home &amp; Living1"
+                      >College/University</a
+                    >
+                    <a class="font-bold my-1" label="Jewelry1">Masters</a>
+                    <a class="font-bold" label="Sports &amp; Outdoors1">PhD</a>
+                  </div>
+                </div>
+              </div>
+              <div class="flex lg:flex-nowrap flex-wrap gap-4 mt-8">
+                <div class="w-full">
+                  <div class="dropdown relative w-full">
+                    <label class="text-[#4e526b] text-sm font-semibold"
+                      >Your country of residence</label
+                    >
+                    <div
+                      onclick="myWeight2()"
+                      class="weightdropbtn mt-2 broder-slate-300 relative border rounded xl:max-w-[712px] w-full text-slate-600 h-[48px] py-3 px-4 cursor-pointer bg-white hover:bg-gray-100 outline-none focus:bg-gray-50"
+                    >
+                      <div class="flex gap-2 mt-[-5px]">
+                        <img
+                          class="w-[30px] rounded-2xl"
+                          src="https://cdn-icons-png.flaticon.com/512/8281/8281549.png"
+                          alt="usa"
+                        />
+                        <span class="weightdropbtnspan2 py-1 place"
+                          >United States</span
+                        >
+                      </div>
+                      <svg
+                        class="absolute weight-arrow2 top-4 right-4"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.5 5.75L8 10.25L12.5 5.75"
+                          stroke="#475569"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      id="weightDropdown2"
+                      class="p-3 cursor-pointer dropdown-content absolute bg-white text-[#00a850] hidden xl:max-w-[712px] w-full overflow-auto h-[106px] z-10"
+                    >
+                      <div class="flex flex-col">
+                        <a class="font-bold" label="Electronics1"
+                          >United States</a
+                        >
+                        <a class="font-bold my-1" label="Fashion1">Canada</a>
+                        <a class="font-bold" label="Home &amp; Living1"
+                          >Australia</a
+                        >
+                        <a class="font-bold my-1" label="Jewelry1">Aruba</a>
+                        <a class="font-bold" label="Sports &amp; Outdoors1"
+                          >Pakistan</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full">
+                  <label class="text-[#4e526b] text-sm font-semibold"
+                    >Your university/college name</label
+                  >
+                  <input
+                    type="text"
+                    class="lg:max-w-[300px] w-full border mt-2 p-3 rounded outline-[#24a652] focus:text-[#24a652]"
+                  />
+                </div>
+              </div>
+              <div class="flex lg:flex-nowrap flex-wrap gap-4 mt-8">
+                <div class="w-full">
+                  <label class="text-[#4e526b] text-sm font-semibold"
+                    >Major(s)</label
+                  >
+                  <input
+                    type="text"
+                    class="lg:max-w-[300px] w-full border mt-2 p-3 rounded outline-[#24a652] focus:text-[#24a652]"
+                  />
+                </div>
+                <div class="w-full">
+                  <label class="text-[#4e526b] text-sm font-semibold"
+                    >Graduation year</label
+                  >
+                  <input
+                    type="text"
+                    class="lg:max-w-[300px] w-full border mt-2 p-3 rounded outline-[#24a652] focus:text-[#24a652]"
+                  />
+                </div>
+              </div>
+              <div class="mt-8">
+                <label for="upload-photo" class="label-u l-2">
+                  <svg
+                    class="text"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-paperclip"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"
+                    />
+                  </svg>
+                  Attach a scan of your diploma</label
+                >
+                <input type="file" name="photo" id="upload-photo" />
+              </div>
+              <p class="text-[13px] text-[#4e526b] mt-4">
+                *we ask you to provide a school verification in order to confirm
+                that you are currently or have once been enrolled in a
+                university.
+              </p>
+              <div class="w-full mt-10">
+                <label class="text-[#4e526b] text-sm font-semibold"
+                  >What are the fields you specialize in?</label
+                >
+                <input
+                  type="text"
+                  class="w-full border mt-2 p-3 rounded h-[100px] outline-[#24a652] focus:text-[#24a652]"
+                  placeholder="Enter fields separated by comma"
+                />
+              </div>
+              <div class="w-full mt-10">
+                <label class="text-[#4e526b] text-sm font-semibold"
+                  >Tell us more about yourself</label
+                >
+                <input
+                  type="text"
+                  class="w-full border mt-2 p-3 rounded h-[100px] outline-[#24a652] focus:text-[#24a652]"
+                  placeholder="a few words, just to know you better"
+                />
+              </div>
+              <div class="mt-8">
+                <label for="upload-photo" class="label-u center">
+                  <svg
+                    class="text"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-paperclip"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M15 7l-6.5 6.5a1.5 1.5 0 0 0 3 3l6.5 -6.5a3 3 0 0 0 -6 -6l-6.5 6.5a4.5 4.5 0 0 0 9 9l6.5 -6.5"
+                    />
+                  </svg>
+                  Attach your CV</label
+                >
+                <input type="file" name="photo" id="upload-photo" />
+              </div>
+              <div class="mt-10">
+                <p class="text-[#4e526b] text-[15px]">
+                  Verify your identity by sharing one of your social media
+                  profile URLs:
+                </p>
+                <li class="text-[#4e526b] text-[15px] my-4 px-4 fb">
+                  Facebook
+                </li>
+                <li class="text-[#4e526b] text-[15px] px-4 fb">LinkedIn</li>
+              </div>
+              <div class="mt-6">
+                <label class="text-[#4e526b] text-sm font-semibold"
+                  >Social media profile URL</label
+                >
+                <input
+                  type="text"
+                  class="w-full border mt-2 p-3 rounded outline-[#24a652] focus:text-[#24a652]"
+                />
+              </div>
+            </div>
+            <div class="bg-[#f5f9ff] mt-10">
+              <p class="text-[#4e526b] text-[13px] lg:px-10 px-4 pt-10">
+                Nerdify aims to provide students, businesses and university
+                representatives with high-quality personalized help. We hold our
+                Nerds to this high standard to ensure our clients get a great
+                experience with us. We have zero tolerance policy for sharing
+                personal data, facilitating drug use, gambling or cheating. By
+                submitting this form you agree to follow our guidelines and
+                agree not to create circumstances that help facilitate any form
+                of college or corporate dishonesty.
+              </p>
+              <div class="mt-6 flex items-start gap-4 lg:px-10 px-4">
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  class="accent-[#24a652] mt-1"
+                />
+                <p class="text-[#4e526b] text-[13px] font-bold pb-10">
+                  I agree to
+                  <span class="underline cursor-pointer">Terms of Use,</span>
+                  <span class="underline cursor-pointer">Privacy Policy,</span>
+                  <span class="underline cursor-pointer">Cookie Policy</span>
+                  and processing <br />
+                  of my personal data.
+                </p>
+              </div>
+            </div>
+            <div class="mx-auto mt-10 w-full lg:px-10 px-4 text-center pb-10">
+              <button
+                class="bg-[#24a752] text-white p-3 lg:max-w-[255px] w-full text-base font-bold rounded hover:bg-[#35ce6b] transform duration-300 ease-in-out"
+              >
+                Submit Application Form
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- New -->
+    <footer class="bg-[#373A4C] mt-20">
+      <div
+        class="mx-auto container lg:max-w-[1000px] w-full mt-[50px] px-4 py-10"
+      >
+        <div
+          class="flex lg:justify-between justify-center md:gap-2 gap-10 flex-wrap"
+        >
+          <div class="flex gap-2 w-[400px] h-[60px] items-center flex-wrap">
+            <img
+              src="https://gonerdify.com/static/img/footer/payment/visa.png"
+              alt="visa"
+            />
+            <img
+              src="https://gonerdify.com/static/img/footer/payment/mc.png"
+              alt="visa"
+            />
+            <img
+              src="https://gonerdify.com/static/img/footer/payment/ae.png"
+              alt="visa"
+            />
+            <img
+              src="https://gonerdify.com/static/img/footer/payment/discover.png"
+              alt="visa"
+            />
+            <img
+              src="https://gonerdify.com/static/img/footer/payment/google-pay.png"
+              alt="visa"
+            />
+            <img
+              src="https://gonerdify.com/static/img/footer/payment/applepay.png"
+              alt="visa"
+            />
+          </div>
+          <div class="w-[44px]">
+            <img
+              src="https://gonerdify.com/static/img/i-twitter2.png?1562246603&f20c9c743bf6"
+              alt="twiter"
+            />
+          </div>
+          <div class="flex gap-2 h-[55px]">
+            <img
+              src="https://gonerdify.com/static/img/footer/guarantee/money-guarantee.png"
+              alt="sd"
+            />
+            <img
+              src="https://gonerdify.com/static/img/footer/guarantee/mccafee.png"
+              alt="sd"
+            />
+          </div>
+        </div>
+        <div class="mt-4">
+          <p class="text-[#c6cada] text-[12px] text-center">
+            Made with love in San Francisco. Send us an email to
+            <a href="" class="text-[#4a82d3] cursor-pointer"
+              >done@gonerdify.com</a
+            >
+          </p>
+          <div class="flex gap-2 justify-center flex-wrap">
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Home
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              About us
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              How it works
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Top Nerds
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Become a Nerd
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Careers
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Nerdify for Businesses
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Nerdify for Universities
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Nerdify Reviews
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Nerdy Bot
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Blog
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Nerdify Scholarship
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Terms of Use
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Privacy Policy
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Cookie Policy
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Refund Policy
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Honor Code
+            </p>
+            <p
+              class="text-[12px] text-center text-[#4a82d3] cursor-pointer hover:text-[#77a1dd]"
+            >
+              Report Abuse
+            </p>
+          </div>
+          <p class="text-[#c6cada] text-[12px] text-center">
+            By accessing this website you agree to our Terms of Use, Privacy and
+            Cookie Policies.
+          </p>
+          <h1 class="w-[100px] h-[1px] bg-white mx-auto my-4 opacity-50"></h1>
+          <p class="text-[#c6cada] text-[12px] text-center mt-4">
+            <span class="text-white font-semibold">Our US address:</span> 995
+            Market St, San Francisco, California 94103
+          </p>
+        </div>
+      </div>
+      <img
+        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/12.png"
+        alt="footer"
+      />
+    </footer>
+    <!-- Modal -->
+    <div
+      class="h-full w-full absolute flex items-center justify-center top-0 md:px-6 md:py-10 py-9 px-4 hidden"
+      id="modal"
+    >
+      <div
+        class="bg-[rgba(38,40,59,0.87)] w-full h-full absolute"
+        onclick="modalHandler()"
+      ></div>
+      <div
+        class="lg:min-w-[350px] bg-white dark:bg-gray-800 border dark:border-white sm:w-auto w-full relative z-30 lg:py-8 lg:px-2 md:py-8 md:px-2 py-5 px-4 rounded-lg"
+      >
+        <div class="flex items-center justify-between"></div>
+        <div
+          class="flex flex-col mx-auto gap-y-6 justify-center bg-white p-2 rounded-lg w-full"
+        >
+          <img
+            class="w-[100px] mx-auto"
+            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/glasssed32323.svg"
+            alt="glasses"
+          />
+          <h1 class="text-center text-[#4e526b] text-[26px] font-semiboldm">
+            Hello Nerd
+          </h1>
+          <input
+            type="email"
+            placeholder="Email address"
+            class="outline-none rounded border w-full p-3 my-1"
+            name=""
+            id=""
+          />
+          <input
+            type="password"
+            placeholder="Email address"
+            class="outline-none rounded border w-full p-3"
+            name=""
+            id=""
+          />
+          <button
+            class="bg-[#24a752] text-white p-2 w-full text-base font-bold rounded-lg hover:bg-[#35ce6b] transform duration-300 ease-in-out"
+          >
+            Login
+          </button>
+          <button
+            onclick="modalHandler()"
+            class="bg-transparent text-[#4e526b] p-2 w-full text-base font-bold rounded-lg hover:bg-gray-50 transform duration-300 ease-in-out"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- end -->
+    <!-- For Nav -->
+    <script>
+      // Modal
+      let modal = document.getElementById("modal");
+      function modalHandler(val) {
+        if (val) {
+          fadeIn(modal);
+        } else {
+          fadeOut(modal);
+        }
+      }
+      function fadeOut(el) {
+        el.style.opacity = 1;
+        (function fade() {
+          if ((el.style.opacity -= 0.1) < 0) {
+            el.style.display = "none";
+          } else {
+            requestAnimationFrame(fade);
+          }
+        })();
+      }
+      function fadeIn(el, display) {
+        el.style.opacity = 0;
+        el.style.display = display || "flex";
+        (function fade() {
+          let val = parseFloat(el.style.opacity);
+          if (!((val += 0.2) > 1)) {
+            el.style.opacity = val;
+            requestAnimationFrame(fade);
+          }
+        })();
+      }
+      // end
+      let sideBar = document.getElementById("mobile-nav");
+      let menu = document.getElementById("menu");
+      let cross = document.getElementById("cross");
+      const sidebarHandler = (check) => {
+        if (check) {
+          sideBar.style.transform = "translateX(0px)";
+          menu.classList.add("hidden");
+          cross.classList.remove("hidden");
+        } else {
+          sideBar.style.transform = "translateX(-100%)";
+          menu.classList.remove("hidden");
+          cross.classList.add("hidden");
+        }
+      };
+      function myWeight1() {
+        const arrow1 = document.querySelector(".weight-arrow1");
+        const down1 = document.getElementById("weightDropdown1");
+        document.querySelectorAll(".tempdropbtn").forEach((el) => {
+          el.classList.add("active2");
+        });
+        down1.classList.remove("active2");
+        if (!down1.classList.contains("active2")) {
+          down1.classList.toggle("hidden");
+        }
+        if (!down1.classList.contains("hidden")) {
+          arrow1.classList.add("rotate-180");
+        } else {
+          arrow1.classList.remove("rotate-180");
+        }
+      }
+      const weightoptions1 = document.querySelectorAll("#weightDropdown1 a");
+      weightoptions1.forEach((item) => {
+        item.classList.add("text-slate-600");
+        item.addEventListener("click", () => {
+          weightoptions1.forEach((inner) => {
+            inner.classList.remove(
+              "text-blue-700",
+              "font-medium",
+              "bg-blue-50"
+            );
+          });
+          document.querySelector(".weightdropbtnspan1").textContent =
+            item.textContent;
+          item.classList.remove("text-slate-600");
+          item.classList.add("bg-gray-50", "text-gray-900", "font-medium");
+          myWeight1();
+        });
+      });
+      //   new
+      function myWeight2() {
+        const arrow1 = document.querySelector(".weight-arrow2");
+        const down1 = document.getElementById("weightDropdown2");
+        document.querySelectorAll(".tempdropbtn").forEach((el) => {
+          el.classList.add("active2");
+        });
+        down1.classList.remove("active2");
+        if (!down1.classList.contains("active2")) {
+          down1.classList.toggle("hidden");
+        }
+        if (!down1.classList.contains("hidden")) {
+          arrow1.classList.add("rotate-180");
+        } else {
+          arrow1.classList.remove("rotate-180");
+        }
+      }
+      const weightoptions2 = document.querySelectorAll("#weightDropdown2 a");
+      weightoptions2.forEach((item) => {
+        item.classList.add("text-slate-600");
+        item.addEventListener("click", () => {
+          weightoptions2.forEach((inner) => {
+            inner.classList.remove(
+              "text-blue-700",
+              "font-medium",
+              "bg-blue-50"
+            );
+          });
+          document.querySelector(".weightdropbtnspan2").textContent =
+            item.textContent;
+          item.classList.remove("text-slate-600");
+          item.classList.add("bg-gray-50", "text-gray-900", "font-medium");
+          myWeight2();
+        });
+      });
+    </script>
+    <!-- end -->
+  </body>
+</html>
